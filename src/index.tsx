@@ -5,11 +5,12 @@ import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
 import './index.css';
+import GlobalProvider from './contexts/Global';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <GlobalProvider>
     <App />
-  </React.StrictMode>,
+  </GlobalProvider>,
   document.getElementById('root')
 );
 

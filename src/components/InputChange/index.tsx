@@ -1,36 +1,29 @@
-/*https://ant.design/components/form/*/
-
-import React, { useState } from 'react';
-
+import React from 'react';
 import { Card, Form, Input } from 'antd';
 import Code from '../Code';
-
-const layout = {
-  labelCol: { span: 2 },
-};
-
-interface IData {
-  firstName: string | undefined;
-  lastName: string | undefined;
-}
+import { useGlobalText, useGlobalData } from '../../contexts/Global';
 
 function InputChange() {
-  const [text, setText] = useState<string>('');
-  const [data, setData] = useState<IData>({
-    firstName: '',
-    lastName: '',
-  });
-  const handleText = (e: any | undefined) => {
+  const { text, setText } = useGlobalText();
+  const { data, setData } = useGlobalData();
+
+  const handleText = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
-  const handleObject = (e: any) => {
+
+  const handleObject = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setData((state) => ({ ...state, [name]: value }));
   };
+
   return (
     <>
       <Card title="Input Text Change" bordered={false}>
-        <Form {...layout} name="basic">
+        <Form
+          {...{ labelCol: { span: 2 } }}
+          name="basic"
+          initialValues={{ text }}
+        >
           <Form.Item label="Write Text" name="text">
             <Input
               onChange={handleText}
@@ -43,7 +36,11 @@ function InputChange() {
         <Code value={{ text }} />
       </Card>
       <Card title="Input Object Change" bordered={false}>
-        <Form {...layout} name="basic">
+        <Form
+          {...{ labelCol: { span: 2 } }}
+          name="basic"
+          initialValues={{ firstName: data.firstName, lastName: data.lastName }}
+        >
           <Form.Item label="First Name" name="firstName">
             <Input
               onChange={handleObject}
@@ -68,3 +65,5 @@ function InputChange() {
 }
 
 export default InputChange;
+
+/*https://ant.design/components/form/*/
