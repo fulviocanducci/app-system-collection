@@ -29,6 +29,7 @@ const App = () => {
             <Breadcrumb.Item>Home</Breadcrumb.Item>
             <Breadcrumb.Item>List</Breadcrumb.Item>
             <Breadcrumb.Item>App</Breadcrumb.Item>
+            <Breadcrumb.Separator></Breadcrumb.Separator>
           </Breadcrumb>
           <div className="site-layout-content">
             <Switch>

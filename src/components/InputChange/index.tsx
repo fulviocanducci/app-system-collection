@@ -20,7 +20,8 @@ function InputChange() {
     <>
       <Card title="Input Text Change" bordered={false}>
         <Form
-          {...{ labelCol: { span: 2 } }}
+          layout="vertical"
+          {...{ labelCol: { span: 3 } }}
           name="basic"
           initialValues={{ text }}
         >
@@ -37,7 +38,8 @@ function InputChange() {
       </Card>
       <Card title="Input Object Change" bordered={false}>
         <Form
-          {...{ labelCol: { span: 2 } }}
+          layout="vertical"
+          {...{ labelCol: { span: 3 } }}
           name="basic"
           initialValues={{ firstName: data.firstName, lastName: data.lastName }}
         >
@@ -49,6 +51,7 @@ function InputChange() {
               placeholder="Write First Name"
             />
           </Form.Item>
+
           <Form.Item label="Last Name" name="lastName">
             <Input
               onChange={handleObject}
